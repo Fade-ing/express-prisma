@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container py-4">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Activity</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Get a breakfast</td>
+                    <td>To get a breakfast, cook an omelet first</td>
+                    <td>
+                        <input type="checkbox" class="form-check-input">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTodoModal">Add list</button>
+    </div>
+    <div class="modal fade" id="addTodoModal" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="addTodoModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addTodoModalLabel">Add list</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/add/todo" method="POST" id="addTodoForm">
+                        <div class="mb-3">
+                            <label for="activity-input" class="form-label">Activity</label>
+                            <input type="text" class="form-control" id="activity-input" name="activity">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description-input" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="description-input" name="description">
+                        </div>
+                        <div class="form-check mb-3">
+                            <label for="status-input" class="form-check-label">Status</label>
+                            <input type="checkbox" class="form-check-input" name="status" id="status-input" value=true>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button form="addTodoForm" type="submit" class="btn btn-success">Send</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
