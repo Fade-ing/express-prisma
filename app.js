@@ -15,7 +15,8 @@ app.get('/', async (req, res) => {
 })
 
 app.post('/add/todo', async (req, res) => {
-  const { activity, description, status } = req.body
+  const { activity, description } = req.body
+  const status = req.body.status ? true : false
   const post = await prisma.todo.create({
     data: {
       activity,
