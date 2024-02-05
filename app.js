@@ -10,8 +10,8 @@ app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.get('/', async (req, res) => {
-  res.render('dashboard')
   const getTodo = await prisma.todo.findMany()
+  res.render('dashboard', { todos: getTodo })
 })
 
 app.post('/add/todo', async (req, res) => {

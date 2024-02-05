@@ -18,14 +18,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Get a breakfast</td>
-                    <td>To get a breakfast, cook an omelet first</td>
-                    <td>
-                        <input type="checkbox" class="form-check-input">
-                    </td>
-                </tr>
+                <% todos.forEach(todo => { %>
+                    <tr>
+                        <td><%= todo.id %></td>
+                        <td><%= todo.activity %></td>
+                        <td><%= todo.description %></td>
+                        <td>
+                            <input type="checkbox" class="form-check-input" <%= todo.status ? 'checked' : '' %> >
+                        </td>
+                    </tr>
+                <% }); %>
             </tbody>
         </table>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTodoModal">Add list</button>
