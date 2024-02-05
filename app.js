@@ -27,6 +27,16 @@ app.post('/add/todo', async (req, res) => {
   res.redirect('back')
 })
 
+app.post('/delete/todo/:id', async (req, res) => {
+  const deleteId = parseInt(req.params.id)
+  await prisma.todo.delete({
+    where: {
+      id: deleteId
+    }
+  })
+  res.redirect('back')
+})
+
 app.listen(port, () => {
   console.log(`App listening on port localhost:${port}`)
 })

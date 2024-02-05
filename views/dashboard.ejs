@@ -26,6 +26,11 @@
                         <td>
                             <input type="checkbox" class="form-check-input" <%= todo.status ? 'checked' : '' %> >
                         </td>
+                        <td>
+                            <form action="/delete/todo/<%= todo.id %>" method="post">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 <% }); %>
             </tbody>
