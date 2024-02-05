@@ -24,7 +24,7 @@ app.post('/add/todo', async (req, res) => {
       status
     },
   })
-  res.json(post)
+  res.redirect('back')
 })
 
 app.listen(port, () => {
