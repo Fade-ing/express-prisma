@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Todo</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <form action="/update/todo/<%= todo.id %>" method="post" class="border p-5 rounded w-50">
+            <div class="mb-4">
+                <h2 class="text-center">Edit Todo</h2>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="activity-input">Activity</label>
+                <input type="text" class="form-control" name="activity" value="<%= todo.activity %>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description-input">Description</label>
+                <input type="text" class="form-control" name="description" value="<%= todo.description %>">
+            </div>
+            <div class="mb-3 form-check">
+                <label class="form-label" for="status-input">Status</label>
+                <input class="form-check-input" type="checkbox" name="status" id="status-input" <%= todo.status ? 'checked' : '' %> >
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
